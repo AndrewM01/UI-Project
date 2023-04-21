@@ -1,0 +1,19 @@
+<div class="header">
+  <h1>Water Bill Section</h1>
+
+</div>
+<div class="search">
+  <input type="text" [(ngModel)]="filter">
+  <button (click)="FilterBills()"> Search</button>
+</div>
+
+
+<div class="container">
+
+  <div class="card" *ngFor="let item of wateBills">
+    <img src="../assets/waterbill.png" alt="waterbill.png">
+    <p><span> amonut: {{item.amount}}$</span></p>
+    <p><span>Due Date: {{item.DueDate}}</span></p>
+    <button>Pay Now</button>
+  </div>
+</div>
