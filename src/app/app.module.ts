@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { WaterBillComponent } from './water-bill/water-bill.component';
 import { NgForm } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    WaterBillComponent
+    WaterBillComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

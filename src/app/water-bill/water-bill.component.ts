@@ -9,36 +9,49 @@ export class WaterBillComponent implements OnInit ,OnChanges {
    wateBills:any[]=[
     {
       id:1,
+      name:"march water bill",
       amount:25,
       DueDate:'15/3/2021'
     },
     {
       id:2,
+      name:"april water bill",
       amount:54,
       DueDate:'15/4/2021'
     },
     {
       id:3,
+      name:"may water bill",
       amount:56,
       DueDate:'15/5/2021'
     }
    ]
+   filteredWaterBills:any[]=this.wateBills
+   private _filter:any
 
-   filter:number=0
+   public set filter(value:number){
+    this._filter=value
+    if(this._filter==''){
+      this.filteredWaterBills=this.wateBills
+    }
+    else{
+      this.filteredWaterBills=this.wateBills.filter(bill=>bill.amount==this._filter)
+    }
+
+   }
+   public get(){
+    return this._filter
+   }
+
   constructor() { }
 
   ngOnInit(): void {
-    if(this.wateBills.length==0){
-      this.wateBills=this.wateBills
-    }
+
   }
 
   ngOnChanges(){
 
   }
 
-  FilterBills(){
-    this.wateBills=this.wateBills.filter(bill=>bill.amount==this.filter)
-  }
 
 }
