@@ -1,5 +1,5 @@
-import { Component, OnInit ,OnChanges } from '@angular/core';
-
+import { Component, OnInit ,OnChanges, Output, EventEmitter } from '@angular/core';
+import { CommunicatonService } from '../communicaton.service';
 @Component({
   selector: 'app-water-bill',
   templateUrl: './water-bill.component.html',
@@ -24,18 +24,71 @@ export class WaterBillComponent implements OnInit ,OnChanges {
       name:"may water bill",
       amount:56,
       DueDate:'15/5/2021'
+    },
+    {
+      id:1,
+      name:"march water bill",
+      amount:25,
+      DueDate:'15/3/2021'
+    },
+    {
+      id:2,
+      name:"april water bill",
+      amount:54,
+      DueDate:'15/4/2021'
+    },
+    {
+      id:3,
+      name:"may water bill",
+      amount:56,
+      DueDate:'15/5/2021'
+    },{
+      id:1,
+      name:"march water bill",
+      amount:25,
+      DueDate:'15/3/2021'
+    },
+    {
+      id:2,
+      name:"april water bill",
+      amount:54,
+      DueDate:'15/4/2021'
+    },
+    {
+      id:3,
+      name:"may water bill",
+      amount:56,
+      DueDate:'15/5/2021'
+    },{
+      id:1,
+      name:"march water bill",
+      amount:25,
+      DueDate:'15/3/2021'
+    },
+    {
+      id:2,
+      name:"april water bill",
+      amount:54,
+      DueDate:'15/4/2021'
+    },
+    {
+      id:3,
+      name:"may water bill",
+      amount:56,
+      DueDate:'15/5/2021'
     }
    ]
    filteredWaterBills:any[]=this.wateBills
    private _filter:any
-
-   public set filter(value:number){
+   @Output() counter=new EventEmitter<number>();
+   BillCounter:number=0
+   public set filter(value:any){
     this._filter=value
     if(this._filter==''){
       this.filteredWaterBills=this.wateBills
     }
     else{
-      this.filteredWaterBills=this.wateBills.filter(bill=>bill.amount==this._filter)
+      this.filteredWaterBills=this.wateBills.filter(bill=>bill.amount==this._filter || bill.name.includes(this._filter) )
     }
 
    }
@@ -43,7 +96,7 @@ export class WaterBillComponent implements OnInit ,OnChanges {
     return this._filter
    }
 
-  constructor() { }
+  constructor(private CommService:CommunicatonService) { }
 
   ngOnInit(): void {
 
@@ -51,6 +104,14 @@ export class WaterBillComponent implements OnInit ,OnChanges {
 
   ngOnChanges(){
 
+  }
+
+  addToBill()
+  {
+    this.BillCounter++;
+    console.log(this.BillCounter);
+    this.CommService.ChangeBillCounter(this.BillCounter)
+     console.log(this.CommService.returnCounterBill())
   }
 
 

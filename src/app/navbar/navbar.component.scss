@@ -1,5 +1,7 @@
-.navbar{
+nav {
   width: 100%;
+  position: fixed;
+  top: 0;
 
 }
 
@@ -8,23 +10,44 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: rgba(33, 113, 218, 0.686);
-  border-radius: 10px;
+  background-color: rgb(54, 127, 223);
+  border-radius: 3px;
 }
 
-li {
-  float:left;
-}
-
-li a {
-  display: block;
+.nav-text a {
+  display: flex;
   color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  float: left;
+  font-size: x-large;
+  &:hover {
+    background-color: #111;
+  }
 }
 
-/* Change the link color to #111 (black) on hover */
-li a:hover {
-  background-color: #111;
+
+li img {
+  display: block;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  padding: 8px 38px;
+  margin-left: 50px;
+  width: 28px;
+  float: right;
+
 }
+li>a.active{color:#F97924}
+
+.badge {
+  position: absolute;
+  top: 25px;
+  right: 177px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  background: red;
+  color: white;
+}
+

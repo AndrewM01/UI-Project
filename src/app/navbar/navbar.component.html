@@ -1,9 +1,10 @@
-<div class="navbar">
+<nav>
   <ul>
-    <li><a [routerLink]="['/Home']">Home</a></li>
-    <li><a [routerLink]="['/water']" routerLinkActive="router-link-active" >Water</a></li>
-    <li><a [routerLink]="['/Electric']">Electric</a></li>
-    <li><a [routerLink]="['/Phone']">Phone</a></li>
+    <li class="nav-text" ><a [routerLink]="['/home']"  >Home</a></li>
+    <li class="nav-text"><a [routerLink]="['/water']" routerLinkActive="active" >Water</a></li>
+    <li class="nav-text"><a [routerLink]="['/electric']" routerLinkActive="active">Electric</a></li>
+    <li class="nav-text"><a [routerLink]="['/phone']" routerLinkActive="active">Phone</a></li>
+    <li class="nav-img"><a [routerLink]="['/profile']" ><img src="..\assets\profiel.png"><span class="badge" *ngIf="this.CommService.BillCounter">{{this.CommService.BillCounter}}</span></a></li>
+    <li class="nav-img"><a [routerLink]="['/checkout']"><img src="..\assets\Bill.png"></a></li>
   </ul>
-
-</div>
+</nav>

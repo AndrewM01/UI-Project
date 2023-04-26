@@ -18,7 +18,7 @@ h1{
 input{
   margin: 10px 0px;
   border-radius: 5px;
-  border-color: rgb(73, 142, 210);
+  border-color: #FFD700;
   font-size: x-large;
 }
 .card-container{
@@ -35,12 +35,11 @@ input{
   transition: 0.3s;
   border-width: 1px;
   border-style: solid;
-  border-color: rgb(73, 142, 210);
+  border-color:  #FFD700;
   border-radius: 10px;
 
-
   &:hover {
-    box-shadow: 0 8px 16px 0 rgba(33, 113, 218, 0.686);
+    box-shadow: 0 8px 16px 0  rgb(255, 255, 47);;
   }
   button{
     width:100px;
@@ -54,7 +53,6 @@ input{
 img{
   width: 80%;
   margin: 25px;
-
 }
 
 span{
