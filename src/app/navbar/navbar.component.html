@@ -4,7 +4,7 @@
     <li class="nav-text"><a [routerLink]="['/water']" routerLinkActive="active" >Water</a></li>
     <li class="nav-text"><a [routerLink]="['/electric']" routerLinkActive="active">Electric</a></li>
     <li class="nav-text"><a [routerLink]="['/phone']" routerLinkActive="active">Phone</a></li>
-    <li class="nav-img"><a [routerLink]="['/profile']" ><img src="..\assets\profiel.png"><span class="badge" *ngIf="this.CommService.BillCounter">{{this.CommService.BillCounter}}</span></a></li>
-    <li class="nav-img"><a [routerLink]="['/checkout']"><img src="..\assets\Bill.png"></a></li>
+    <li class="nav-img"><a [routerLink]="['/profile']" ><img src="..\assets\profiel.png"></a></li>
+    <li class="nav-img"><a [routerLink]="['/checkout']"><img src="..\assets\Bill.png"><span class="badge" *ngIf="this.CommService.BillCounter">{{this.CommService.BillCounter}}</span></a></li>
   </ul>
 </nav>

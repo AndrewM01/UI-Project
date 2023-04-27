@@ -8,14 +8,15 @@
 
   <div class="search">
     <input type="text" [(ngModel)]="filter" placeholder="Search....">
+    <button (click)="sort()" class="date-Btn" >{{dateToggle? 'show me the nearest date':'show me the latest date'}}</button>
   </div>
   <div class="card-container">
     <div class="card" *ngFor="let item of filteredElectricBills">
       <img src="../assets/electricity.png" alt="electric.png">
       <p>Name : {{item.name}}</p>
       <p><span> amonut: {{item.amount}}$</span></p>
-      <p><span>Due Date: {{item.DueDate}}</span></p>
-      <button>Pay Now</button>
+      <p><span>Due Date: {{item.DueDate|date}}</span></p>
+      <button (click)="addToBill(item.id)">Pay Now</button>
     </div>
   </div>
 

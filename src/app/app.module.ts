@@ -10,6 +10,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ElectricBillComponent } from './electric-bill/electric-bill.component';
 import { TelephoneBillComponent } from './telephone-bill/telephone-bill.component';
 import { CommunicatonService } from './communicaton.service';
+import { BillCheckoutComponent } from './bill-checkout/bill-checkout.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { CommunicatonService } from './communicaton.service';
     WaterBillComponent,
     NavbarComponent,
     ElectricBillComponent,
-    TelephoneBillComponent
+    TelephoneBillComponent,
+    BillCheckoutComponent
   ],
   imports: [
     BrowserModule,

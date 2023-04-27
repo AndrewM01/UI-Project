@@ -2,6 +2,7 @@ nav {
   width: 100%;
   position: fixed;
   top: 0;
+  margin-bottom: 15px;
 
 }
 
@@ -27,7 +28,9 @@ ul {
   }
 }
 
-
+li{
+  position: relative;
+}
 li img {
   display: block;
   color: white;

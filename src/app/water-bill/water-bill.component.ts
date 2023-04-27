@@ -6,82 +6,13 @@ import { CommunicatonService } from '../communicaton.service';
   styleUrls: ['./water-bill.component.scss']
 })
 export class WaterBillComponent implements OnInit ,OnChanges {
-   wateBills:any[]=[
-    {
-      id:1,
-      name:"march water bill",
-      amount:25,
-      DueDate:'15/3/2021'
-    },
-    {
-      id:2,
-      name:"april water bill",
-      amount:54,
-      DueDate:'15/4/2021'
-    },
-    {
-      id:3,
-      name:"may water bill",
-      amount:56,
-      DueDate:'15/5/2021'
-    },
-    {
-      id:1,
-      name:"march water bill",
-      amount:25,
-      DueDate:'15/3/2021'
-    },
-    {
-      id:2,
-      name:"april water bill",
-      amount:54,
-      DueDate:'15/4/2021'
-    },
-    {
-      id:3,
-      name:"may water bill",
-      amount:56,
-      DueDate:'15/5/2021'
-    },{
-      id:1,
-      name:"march water bill",
-      amount:25,
-      DueDate:'15/3/2021'
-    },
-    {
-      id:2,
-      name:"april water bill",
-      amount:54,
-      DueDate:'15/4/2021'
-    },
-    {
-      id:3,
-      name:"may water bill",
-      amount:56,
-      DueDate:'15/5/2021'
-    },{
-      id:1,
-      name:"march water bill",
-      amount:25,
-      DueDate:'15/3/2021'
-    },
-    {
-      id:2,
-      name:"april water bill",
-      amount:54,
-      DueDate:'15/4/2021'
-    },
-    {
-      id:3,
-      name:"may water bill",
-      amount:56,
-      DueDate:'15/5/2021'
-    }
-   ]
-   filteredWaterBills:any[]=this.wateBills
+  wateBills:any[]=[]
+  filteredWaterBills:any[]=this.wateBills
+
+   dateToggle:boolean=false
    private _filter:any
    @Output() counter=new EventEmitter<number>();
-   BillCounter:number=0
+
    public set filter(value:any){
     this._filter=value
     if(this._filter==''){
@@ -99,20 +30,47 @@ export class WaterBillComponent implements OnInit ,OnChanges {
   constructor(private CommService:CommunicatonService) { }
 
   ngOnInit(): void {
-
+   this.wateBills=this.CommService.getWaterBills()
+   this.filteredWaterBills=this.wateBills
   }
 
   ngOnChanges(){
 
   }
 
-  addToBill()
+  addToBill(id:number)
   {
-    this.BillCounter++;
-    console.log(this.BillCounter);
-    this.CommService.ChangeBillCounter(this.BillCounter)
-     console.log(this.CommService.returnCounterBill())
+
+    this.CommService.ChangeBillCounter(id)
+
+  }
+
+  get sortByLastModifiedAsend() {
+    return this.filteredWaterBills.sort((a: any, b: any) => {
+      return <any>new Date(b.DueDate) - <any>new Date(a.DueDate);
+    });
   }
 
 
+  get sortByLastModifiedDesc() {
+    return this.filteredWaterBills.sort((a: any, b: any) => {
+      return <any>new Date(a.DueDate) - <any>new Date(b.DueDate);
+    });
+  }
+
+
+  sort()
+  {
+    this.dateToggle=!this.dateToggle
+    console.log(this.dateToggle)
+    if(this.dateToggle){
+      this.filteredWaterBills=this.sortByLastModifiedAsend
+
+    }
+    else if(!this.dateToggle){
+      this.filteredWaterBills=this.sortByLastModifiedDesc
+
+    }
+
+  }
 }

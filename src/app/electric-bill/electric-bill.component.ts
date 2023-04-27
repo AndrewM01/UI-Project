@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommunicatonService } from '../communicaton.service';
 
 @Component({
   selector: 'app-electric-bill',
@@ -7,79 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ElectricBillComponent implements OnInit {
 
-  electricBills:any[]=[
-    {
-      id:1,
-      name:"march Electric bill",
-      amount:25,
-      DueDate:'15/3/2021'
-    },
-    {
-      id:2,
-      name:"april Electric bill",
-      amount:54,
-      DueDate:'15/4/2021'
-    },
-    {
-      id:3,
-      name:"may Electric bill",
-      amount:56,
-      DueDate:'15/5/2021'
-    },
-    {
-      id:1,
-      name:"march Electric bill",
-      amount:25,
-      DueDate:'15/3/2021'
-    },
-    {
-      id:2,
-      name:"april Electric bill",
-      amount:54,
-      DueDate:'15/4/2021'
-    },
-    {
-      id:3,
-      name:"may Electric bill",
-      amount:56,
-      DueDate:'15/5/2021'
-    },{
-      id:1,
-      name:"march Electric bill",
-      amount:25,
-      DueDate:'15/3/2021'
-    },
-    {
-      id:2,
-      name:"april Electric bill",
-      amount:54,
-      DueDate:'15/4/2021'
-    },
-    {
-      id:3,
-      name:"may Electric bill",
-      amount:56,
-      DueDate:'15/5/2021'
-    },{
-      id:1,
-      name:"march Electric bill",
-      amount:25,
-      DueDate:'15/3/2021'
-    },
-    {
-      id:2,
-      name:"april Electric bill",
-      amount:54,
-      DueDate:'15/4/2021'
-    },
-    {
-      id:3,
-      name:"may Electric bill",
-      amount:56,
-      DueDate:'15/5/2021'
-    }
-   ]
+  electricBills:any[]=[]
    filteredElectricBills:any[]=this.electricBills
+   dateToggle:boolean=false
    private _filter:any
 
    public set filter(value:any){
@@ -96,14 +27,53 @@ export class ElectricBillComponent implements OnInit {
     return this._filter
    }
 
-  constructor() { }
+  constructor(private comService:CommunicatonService) { }
 
   ngOnInit(): void {
-
+    this.electricBills=this.comService.getElectricBill()
+    this.filteredElectricBills=this.electricBills
   }
 
   ngOnChanges(){
 
   }
+
+  addToBill(id:number)
+  {
+
+    this.comService.ChangeBillCounter(id)
+
+  }
+
+
+  get sortByLastModifiedAsend() {
+    return this.filteredElectricBills.sort((a: any, b: any) => {
+      return <any>new Date(b.DueDate) - <any>new Date(a.DueDate);
+    });
+  }
+
+
+  get sortByLastModifiedDesc() {
+    return this.filteredElectricBills.sort((a: any, b: any) => {
+      return <any>new Date(a.DueDate) - <any>new Date(b.DueDate);
+    });
+  }
+
+
+  sort()
+  {
+    this.dateToggle=!this.dateToggle
+
+    if(this.dateToggle){
+      this.filteredElectricBills=this.sortByLastModifiedAsend
+
+    }
+    else if(!this.dateToggle){
+      this.filteredElectricBills=this.sortByLastModifiedDesc
+
+    }
+
+  }
+
 
 }
