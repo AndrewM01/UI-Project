@@ -1,0 +1,10 @@
+<div style="display: flex; justify-content: center; align-items: center; " *ngFor="let product of products">
+  <div class="card">
+    <img src="../../assets/elec.png" alt="Denim Jeans" style="width:40%;">
+    <h1>{{product.name}}</h1>
+    <p class="price">{{product.price}} $</p>
+    <p>{{product.dueDate}}</p>
+    <p><button>Add to Cart</button></p>
+  </div>
+</div>
+<button (click)="logout()">Logout</button>

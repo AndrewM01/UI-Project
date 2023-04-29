@@ -1,0 +1,62 @@
+<div class="area"></div>
+<nav class="main-menu">
+  <ul>
+    <li>
+      <a href="https://jbfarrow.com">
+        <i class="fa fa-home fa-2x"></i>
+        <span class="nav-text">
+          Dashboard
+        </span>
+      </a>
+
+    </li>
+    <li class="has-subnav">
+      <a (click)="getAllUsers()">
+        <i class="fa fa-globe fa-2x"></i>
+        <span class="nav-text">
+          Users
+        </span>
+      </a>
+
+    </li>
+    <li class="has-subnav">
+      <a href="#">
+        <i class="fa fa-comments fa-2x"></i>
+        <span class="nav-text">
+          Misc
+        </span>
+      </a>
+    </li>
+  </ul>
+
+  <ul class="logout">
+    <li>
+      <a (click)="logout()">
+        <i class="fa fa-power-off fa-2x"></i>
+        <span class="nav-text">
+          Logout
+        </span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<div style="display: flex; justify-content: center; align-items: center; " *ngFor="let user of users">
+  <div class="card" *ngIf="n">
+    <img src="../../assets/elec.png" alt="Denim Jeans" style="width:40%;">
+    <h1>{{user.name}}</h1>
+    <p class="price">{{user.id}} </p>
+    <p *ngIf="isLate">{{user.isLate}}</p>
+    <p><button (click)="showElec(user.id)">Show Details</button></p>
+  </div>
+</div>
+
+<div style="display: flex; justify-content: center; align-items: center; " *ngFor="let product of products">
+  <div class="card">
+    <img src="../../assets/elec.png" alt="Denim Jeans" style="width:40%;">
+    <h1>{{product.name}}</h1>
+    <p class="price">{{product.price}} $</p>
+    <p>{{product.dueDate}}</p>
+    <p><button>Add to Cart</button></p>
+  </div>
+</div>

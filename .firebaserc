@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "invoice-33d1e": {
+      "hosting": {
+        "invoiceSystem": [
+          "invoice-33d1e"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "invoice-33d1e"
+  }
+}
