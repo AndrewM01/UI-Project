@@ -22,8 +22,18 @@ export class AdminComponent implements OnInit {
     private router: Router
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getAllUsers();
+  }
 
+  deleteUser(user: any) {
+    alert("You're about to delete a User" + user.name);
+    if (window.confirm()) this.data.deleteUser(user);
+  }
+  deleteProduct(product: Product, id: any) {
+    this.data.deleteProduct(product, id);
+  }
+  editUser(user: any) {}
   getAllUsers() {
     this.data.getAllUsers().subscribe(
       (res: any) => {
@@ -55,7 +65,26 @@ export class AdminComponent implements OnInit {
       }
     );
   }
+  showWater(userID: any) {
+    this.router.navigate(['admin', userID]);
+    this.n = !this.n;
+    this.isShown = !this.isShown;
+    this.data.getAllWaterAdmin(userID).subscribe(
+      (res: any) => {
+        this.products = res.map((e: any) => {
+          const data = e.payload.doc.data();
+          data.id = e.payload.doc.id;
+          return data;
+        });
+      },
+      (err: any) => {
+        console.log(err);
+      }
+    );
+  }
 
+  addBill(id: any) {}
+  addToBill(id: any) {}
   logout() {
     this.auth.logout();
   }

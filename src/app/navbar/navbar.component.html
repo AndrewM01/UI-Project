@@ -1,0 +1,14 @@
+<nav>
+  <ul>
+    <li class="nav-text"><a [routerLink]="['/home']">Home</a></li>
+    <li class="nav-text"><a [routerLink]="['/water']" routerLinkActive="active">Water</a></li>
+    <li class="nav-text"><a [routerLink]="['/electric']" routerLinkActive="active">Electric</a></li>
+    <li class="nav-text"><a [routerLink]="['/phone']" routerLinkActive="active">Phone</a></li>
+    <li class="nav-text"><a (click)="logout()">Logout</a></li>
+    <li class="nav-icon"><a [routerLink]="['/profile']"><fa-icon class=" fa-2x" style="color: #ffffff;"
+          [icon]="faUser"></fa-icon></a></li>
+    <li class="nav-icon"><a [routerLink]="['/checkout']"><fa-icon class="  fa-2x" style="color: #ffffff;"
+          [icon]="faFileInvoice"></fa-icon> <span class="badge"
+          *ngIf="this.CommService.BillCounter">{{this.CommService.BillCounter}} </span></a></li>
+  </ul>
+</nav>

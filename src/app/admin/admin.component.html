@@ -1,62 +1,30 @@
-<div class="area"></div>
-<nav class="main-menu">
-  <ul>
-    <li>
-      <a href="https://jbfarrow.com">
-        <i class="fa fa-home fa-2x"></i>
-        <span class="nav-text">
-          Dashboard
-        </span>
-      </a>
-
-    </li>
-    <li class="has-subnav">
-      <a (click)="getAllUsers()">
-        <i class="fa fa-globe fa-2x"></i>
-        <span class="nav-text">
-          Users
-        </span>
-      </a>
-
-    </li>
-    <li class="has-subnav">
-      <a href="#">
-        <i class="fa fa-comments fa-2x"></i>
-        <span class="nav-text">
-          Misc
-        </span>
-      </a>
-    </li>
-  </ul>
-
-  <ul class="logout">
-    <li>
-      <a (click)="logout()">
-        <i class="fa fa-power-off fa-2x"></i>
-        <span class="nav-text">
-          Logout
-        </span>
-      </a>
-    </li>
-  </ul>
-</nav>
-
-<div style="display: flex; justify-content: center; align-items: center; " *ngFor="let user of users">
-  <div class="card" *ngIf="n">
-    <img src="../../assets/elec.png" alt="Denim Jeans" style="width:40%;">
-    <h1>{{user.name}}</h1>
-    <p class="price">{{user.id}} </p>
-    <p *ngIf="isLate">{{user.isLate}}</p>
-    <p><button (click)="showElec(user.id)">Show Details</button></p>
-  </div>
-</div>
-
-<div style="display: flex; justify-content: center; align-items: center; " *ngFor="let product of products">
-  <div class="card">
-    <img src="../../assets/elec.png" alt="Denim Jeans" style="width:40%;">
-    <h1>{{product.name}}</h1>
-    <p class="price">{{product.price}} $</p>
-    <p>{{product.dueDate}}</p>
-    <p><button>Add to Cart</button></p>
-  </div>
-</div>
+<table class="table table">
+  <thead>
+    <tr>
+      <th scope="col">Username</th>
+      <th scope="col">User ID</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let user of users">
+    <tr>
+      <td>{{user.name}}</td>
+      <td>{{user.id}}</td>
+      <td>
+        <a [routerLink]="['/addBill',user.id]" class="btn-floating  waves-effect waves-light red"><i
+            class="material-icons">add</i></a>
+        <a (click)="showWater(user.id)" class="btn-floating  waves-effect waves-light blue"><i
+            class="material-icons">local_drink</i></a>
+        <a (click)="showElec(user.id)" class="btn-floating  waves-effect waves-light yellow"><i
+            class="material-icons">lightbulb_outline</i></a>
+        <a class="btn-floating  waves-effect waves-light green"><i class="material-icons">local_phone</i></a>
+        <button class="waves-effect waves-light btn-small red" (click)="deleteUser(user)">Delete</button>
+      </td>
+    </tr>
+    <tr *ngFor="let item of products">
+      <td>{{item.name}}</td>
+      <td>{{item.price}}</td>
+      <td>{{item.dueDate|date}}</td>
+      <button class="waves-effect waves-light btn-small red" (click)="deleteProduct(item,user.id)">Pay Now</button>
+    </tr>
+  </tbody>
+</table>

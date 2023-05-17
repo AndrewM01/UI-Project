@@ -1,13 +1,7 @@
-<form class="form-horizontal">
-  <div class=" col-xs-3">
-    <label for=" exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email" [(ngModel)]="email"
-      name="email">
-  </div>
-  <div class="col-xs-3">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password"
-      [(ngModel)]="password">
-  </div>
-  <button type="submit" class="btn btn-success" (click)="login()">submit</button>
+<form [formGroup]="form" (ngSubmit)="submitForm()">
+  <label for="email"> E-mail</label>
+  <input type="text" [formControlName]="'email'" />
+  <label for="email"> Password</label>
+  <input type="password" [formControlName]="'password'" />
+  <button type="submit">Submit</button>
 </form>

@@ -1,0 +1,24 @@
+<div class="container">
+
+  <div class="header">
+    <h1>Electric Bill Section</h1>
+
+  </div>
+
+  <div class="search">
+    <input type="text" [(ngModel)]="filter" placeholder="Search....">
+    <button (click)="sort()" class="date-Btn">{{dateToggle? 'show me the nearest date':'show me the latest
+      date'}}</button>
+  </div>
+  <div class="card-container">
+    <div class="card" *ngFor="let item of products">
+      <img src="../assets/electricity.png" alt="electric.png">
+      <p>Name : {{item.name}}</p>
+      <p><span> amount: {{item.price}}$</span></p>
+      <p><span>Due Date: {{item.dueDate|date}}</span></p>
+      <button (click)="payBillNow(item)">Pay Now</button>
+      <button (click)="addToBill(item)">Add to Cart</button>
+    </div>
+  </div>
+
+</div>

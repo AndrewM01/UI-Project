@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="header">
+    <h1>INVOICE SYSTEM</h1>
+    <h3>"Streamline your invoicing, Simplify your life!"</h3>
+  </div>
+  <div class="body">
+   <h2>Urgent Bills!</h2>
+   <div class="card-container">
+    <div class="card" *ngFor="let item of Bills" >
+      <img src={{item.img}} alt="waterbill.png">
+      <p><span>Name : {{item.name}}</span></p>
+      <p><span> amonut: {{item.amount|currency}}</span></p>
+      <p><span>Due Date: {{item.DueDate}} </span></p>
+      <button class="bill-Btn">Pay Now</button>
+    </div>
+  </div>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8">
+      <h1>Add Bill</h1>
+      <form [formGroup]="membershipForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name" formControlName="name">
+        </div>
+        <div class="form-group">
+          <label for="price">price</label>
+          <input type="text" class="form-control" id="price" formControlName="price">
+        </div>
+        <div class="form-group">
+          <label for="mdate">Due Date</label>
+          <input type="date" class="form-control" id="mdate" formControlName="dueDate">
+        </div>
+        <div class="form-group">
+          <label id="example-radio-group-label">Pick your favorite season</label>
+          <mat-radio-group formControlName="type" aria-labelledby="example-radio-group-label"
+            class="example-radio-group">
+            <mat-radio-button class="example-radio-button" *ngFor="let mtype of membershiptypes" [value]="mtype">
+              {{mtype}}
+            </mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+      </form>
+    </div>
+  </div>
+  <hr>
+  <div *ngIf="submitted">
+    <div class="row">
+      <div class="col-xs-12 col-sm-10 col-md-8">
+        <p>Name: {{memberObj.name}}</p>
+        <p>email: {{memberObj.price}}</p>
+        <p>Membership Date: {{memberObj.dueDate | date:'dd/MM/yyyy'}}</p>
+        <p>Membership Type: {{memberObj.type}}</p>
+      </div>
+    </div>
+  </div>
+</div>

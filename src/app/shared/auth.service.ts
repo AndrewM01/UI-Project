@@ -13,7 +13,7 @@ export class AuthService {
         localStorage.setItem('token', 'true');
         if (user.user?.uid == 'v14Bj2ovnRhjedXsynDKxtvE41A3') {
           this.router.navigate(['/admin']);
-        } else this.router.navigate(['/elec']);
+        } else this.router.navigate(['/electric']);
       },
       (err) => {
         alert(err.message);
@@ -26,6 +26,7 @@ export class AuthService {
     this.auth.signOut().then(
       () => {
         localStorage.removeItem('token');
+        localStorage.removeItem('userUID');
         this.router.navigate(['/login']);
       },
       (err) => {

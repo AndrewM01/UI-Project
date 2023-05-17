@@ -3,4 +3,6 @@ export interface Product {
   name: string;
   price: number;
   dueDate: Date;
+  type: string;
+  isCheckedOut: boolean;
 }

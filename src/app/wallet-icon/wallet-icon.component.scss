@@ -1,0 +1,24 @@
+.container {
+  position: fixed;
+  top: 15vh;
+  left: 150vh;
+  white-space: nowrap;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+}
+
+span {
+  display: inline-block;
+  max-width: 250px;
+  width: 100px;
+  position: relative;
+  color: white;
+  right: 120px;
+  font-size: x-large;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+}

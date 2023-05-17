@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="profile-sec">
+    <div class="image-icons">
+      <!--<img src="../assets/Andrew2.jpeg">
+
+      <ul class="logos">
+        <li>
+          <fa-icon class="fa-2x" [icon]="faFacebook"></fa-icon>
+        </li>
+        <li>
+          <fa-icon class="fa-2x" [icon]="faTwitrer"></fa-icon>
+        </li>
+        <li>
+          <fa-icon class="fa-2x" [icon]="faInstagram"></fa-icon>
+        </li>
+        <li>
+          <fa-icon class="fa-2x" [icon]="faEnvelope"></fa-icon>
+        </li>
+      </ul>
+      -->
+    </div>
+    <div class="info">
+      <ul>
+        <li class="info-li">Name: Andrew</li>
+        <li class="info-li">Phone: +20 01220721813</li>
+        <li class="info-li">Addres: 12 st genet el hagar, shoubra </li>
+        <li class="info-li">City: Cairo</li>
+        <li class="info-li">Country: Egypt</li>
+      </ul>
+    </div>
+
+  </div>
+  <div class="pill-log">
+    <h1 style="text-align: center;">Bill Log</h1>
+    <mat-form-field>
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" #input>
+    </mat-form-field>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef> Price </th>
+        <td mat-cell *matCellDef="let element"> {{element.price | currency}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef> Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.dueDate.seconds*1000 | date}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+
+    </table>
+
+  </div>
+</div>

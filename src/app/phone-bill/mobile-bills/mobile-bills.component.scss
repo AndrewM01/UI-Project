@@ -1,0 +1,91 @@
+.container {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 10px auto;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.header {
+  display: flex;
+  justify-content: center;
+}
+.filter-menu {
+  height: 40px;
+  width: 200px;
+  border-width: 3px;
+  border-radius: 10px;
+  border-color: rgb(28, 72, 131);
+  border-style: solid;
+  font-size: large;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+}
+input {
+  width: 200px;
+  height: 30px;
+  border-width: 3px;
+  border-radius: 5px;
+  border-color: rgb(28, 72, 131);
+  border-style: solid;
+  font-size: x-large;
+}
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  margin: 0 auto;
+  column-gap: 10px;
+  row-gap: 10px;
+  flex-wrap: wrap;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  max-width: 300px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(28, 72, 131);
+  border-radius: 10px;
+
+
+  &:hover {
+    box-shadow: 0 8px 16px 0 rgb(28, 72, 131);
+  }
+  .bill-Btn {
+    width: 100px;
+    align-self: center;
+    border-color: rgb(28, 72, 131);
+    border-style: solid;
+    &:hover {
+      background-color: rgb(28, 72, 131);
+    }
+  }
+}
+
+img {
+  align-self: center;
+  width: 60%;
+
+}
+
+span {
+  align-self:flex-start;
+  font-size: larger;
+}
+p {
+  margin: 10px;
+  font-size: larger;
+}
