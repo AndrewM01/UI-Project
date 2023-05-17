@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
-import { FirebaseApp } from '@angular/fire/app';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { increment } from '@angular/fire/firestore';
 import { Product } from '../product';
-import { User } from '../user';
 import { AuthService } from './auth.service';
 
 @Injectable({
@@ -96,8 +94,8 @@ export class DataService {
   walletCheck(point: number) {
     let userID = localStorage.getItem('userUID') || '{}';
     let wallet = JSON.parse(localStorage.getItem('wallet') || '{}');
-    console.log(wallet, userID);
-    if (wallet >= point) {
+    console.log(wallet, userID, point);
+    if (wallet > point) {
       this.fire.doc('/Users/' + userID).update({ wallet: increment(-point) });
       return true;
     } else {
